@@ -1,9 +1,13 @@
 package vn.edu.vnuk.em.view;
 
+import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JButton;
 import javax.swing.JTextField;
@@ -15,6 +19,8 @@ public class UpdateBasicSalary extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textField;
+	private JTable table;
+	
 
 
 	/**
@@ -39,7 +45,7 @@ public class UpdateBasicSalary extends JFrame {
 	public UpdateBasicSalary() {
 		
 		 
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(200, 200, 800, 600);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -79,6 +85,23 @@ public class UpdateBasicSalary extends JFrame {
 		JButton btnApply = new JButton("APPLY");
 		btnApply.setBounds(632, 532, 131, 40);
 		contentPane.add(btnApply);
+		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(159, 69, 641, 451);
+		contentPane.add(scrollPane);
+		
+		String[] columns = {"ID", "Name", "Salary"};
+		Object[][] data = {
+				{"A", "B", "C"},
+		};
+		
+		table = new JTable(data, columns);
+		scrollPane.setViewportView(table);
+		table.setFillsViewportHeight(true);
+		table.setPreferredScrollableViewportSize(new Dimension(500,70));
+		table.setBackground(Color.WHITE);
+		table.setBounds(45, 114, 757, 358);
+		table.setEnabled(true);	
 		
 	}
 }

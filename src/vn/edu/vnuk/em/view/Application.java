@@ -160,9 +160,20 @@ public class Application extends JFrame {
 		mnFile.add(mntmAddNewEmployee);
 		
 		JMenuItem mntmUpdateBasicSalary = new JMenuItem("Update basic salary");
+		mntmUpdateBasicSalary.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				UpdateBasicSalary updateBasicSalary = new UpdateBasicSalary();
+				updateBasicSalary.setVisible(true);
+			}
+		});
 		mnFile.add(mntmUpdateBasicSalary);
 		
 		JMenuItem mntmExit = new JMenuItem("Exit");
+		mntmExit.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				System.exit(0);
+			}
+		});
 		mnFile.add(mntmExit);
 		
 		popup = new JPopupMenu();
